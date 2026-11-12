@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Warm Gastronomy & Haute Cuisine Palette (Truffle Noir, Bordeaux Wine & Warm Ember Flame) */
+html.dark {
+  color-scheme: dark;
+  --bg-truffle: #120E0D;
+  --bg-surface: #1A1412;
+  --bg-card: rgba(28, 22, 19, 0.85);
+  --bg-card-hover: rgba(38, 30, 26, 0.95);
+  --border-warm: rgba(234, 88, 12, 0.25);
+  --border-wine: rgba(185, 28, 28, 0.35);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-main: #FAF6F0;
+  --text-muted: #BFAEA4;
+  --wine-accent: #B91C1C;
+  --flame-accent: #EA580C;
+  --amber-accent: #F59E0B;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+  --bg-truffle: #FCF9F5;
+  --bg-surface: #F5EBE1;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FBF6EE;
+  --border-warm: rgba(234, 88, 12, 0.25);
+  --border-wine: rgba(185, 28, 28, 0.3);
+  --border-subtle: rgba(44, 24, 16, 0.08);
+  --text-main: #1F1612;
+  --text-muted: #6B564E;
+  --wine-accent: #991B1B;
+  --flame-accent: #C2410C;
+  --amber-accent: #D97706;
+}
+
+/* Background Application */
+html.dark body {
+  background-color: var(--bg-truffle);
+  color: var(--text-main);
+}
+
+html:not(.dark) body {
+  background-color: var(--bg-truffle);
+  color: var(--text-main);
+}
+
+/* Delicious Culinary Gradients */
+.wine-flame-gradient-text {
+  background: linear-gradient(135deg, #F97316 0%, #EF4444 40%, #B91C1C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.amber-honey-gradient-text {
+  background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.emerald-mint-gradient-text {
+  background: linear-gradient(135deg, #6EE7B7 0%, #10B981 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Warm Gourmet Card */
+.culinary-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.culinary-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-warm);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(234, 88, 12, 0.25);
+}
+
+.culinary-card-featured {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-wine);
+  box-shadow: 0 12px 35px -8px rgba(185, 28, 28, 0.3);
+}
+
+/* Primary Burgundy Wine Button */
+.btn-wine {
+  background: linear-gradient(135deg, #B91C1C 0%, #991B1B 50%, #7F1D1D 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 22px rgba(185, 28, 28, 0.45);
+}
+
+.btn-wine:hover {
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #991B1B 100%);
+  box-shadow: 0 6px 30px rgba(185, 28, 28, 0.7);
+  transform: translateY(-1px);
+}
+
+/* Ember Flame Orange Button */
+.btn-ember {
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 22px rgba(234, 88, 12, 0.45);
+}
+
+.btn-ember:hover {
+  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  box-shadow: 0 6px 30px rgba(234, 88, 12, 0.7);
+  transform: translateY(-1px);
+}
+
+/* Warm Candlelit Ambient Lights */
+.candle-glow-warm {
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.15) 0%, rgba(185, 28, 28, 0.08) 45%, transparent 70%);
+}
+
+/* Shimmer for Gift Box */
+@keyframes emeraldShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.emerald-shimmer-border {
+  background: linear-gradient(90deg, #10B981 0%, #34D399 50%, #10B981 100%);
+  background-size: 200% auto;
+  animation: emeraldShimmer 4s linear infinite;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #120E0D;
+}
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #F5EBE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #EA580C;
+  border-radius: 3px;
+}
